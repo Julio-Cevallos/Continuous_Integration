@@ -43,8 +43,10 @@ def special_offer(amount):
     """R5: Apply one special offer based on the amount."""
     if amount > 400:
         return amount - 50
-    elif amount > 200:
+    
+    if amount > 200:
         return amount - 20
+    
     return amount
 
 

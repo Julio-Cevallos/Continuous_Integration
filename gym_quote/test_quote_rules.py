@@ -2,8 +2,15 @@
 
 import pytest
 
-from quote_rules import INVALID, is_valid_selection, subtotal,group_discount, special_offer, premium_surcharge, round_result
-
+from quote_rules import (
+    INVALID,
+    is_valid_selection,
+    subtotal,
+    group_discount,
+    special_offer,
+    premium_surcharge,
+    round_result
+)
 
 # ---------- R2: validation ----------
 def test_premium_extra_with_premium_plan_is_valid():
