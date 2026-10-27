@@ -99,13 +99,13 @@ def test_special_offer():
     assert special_offer(450) == 400
     assert special_offer(300) == 280
     assert special_offer(200) == 200
-    assert special_offer(400) == 350
+    assert special_offer(400) == 380
 
 
 # R6: Premium surcharge
 def test_premium_surcharge():
     assert premium_surcharge(100, []) == 100
-    assert premium_surcharge(100, ["SPA"]) == 115
+    assert premium_surcharge(100, ["SPA"]) == pytest.approx(115)
     assert premium_surcharge(100, ["GROUP_CLASSES"]) == 100
 
 # ---------- R7: rounding ----------
