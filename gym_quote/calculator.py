@@ -1,4 +1,7 @@
-class GymCalculator:
+"""Gym membership price calculator."""
+
+class GymCalculator:  # pylint: disable=too-few-public-methods
+    """Calculates the price of a gym membership."""
     PLAN_PRICES = {
         "BASIC": 30,
         "STANDARD": 45,
