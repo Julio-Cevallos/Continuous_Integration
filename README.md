@@ -1,2 +1,2 @@
 # Continuous_Integration
-Este es el taller de Software II
+Este es el taller de Ing. Software II
