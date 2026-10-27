@@ -45,4 +45,3 @@ def test_unknown_extra_is_invalid():
     """R2: an unknown extra is invalid."""
     assert extra_price("SAUNA") is None
     assert not is_premium_extra("SAUNA")
-    

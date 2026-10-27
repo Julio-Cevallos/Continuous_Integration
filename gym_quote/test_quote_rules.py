@@ -113,4 +113,3 @@ def test_whole_number_stays_the_same():
 def test_invalid_result_is_minus_one():
     """R7: the result of an invalid selection is -1."""
     assert INVALID == -1
-    
