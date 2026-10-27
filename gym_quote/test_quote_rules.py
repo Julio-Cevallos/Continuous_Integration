@@ -2,8 +2,15 @@
 
 import pytest
 
-from quote_rules import INVALID, is_valid_selection, subtotal, round_result
-
+from quote_rules import (
+    INVALID,
+    is_valid_selection,
+    subtotal,
+    group_discount,
+    special_offer,
+    premium_surcharge,
+    round_result
+)
 
 # ---------- R2: validation ----------
 def test_premium_extra_with_premium_plan_is_valid():
@@ -87,6 +94,30 @@ def test_subtotal_of_invalid_selection_raises():
     """R3: the subtotal of an invalid selection raises an error."""
     with pytest.raises(ValueError):
         subtotal("BASIC", ["SPA"], 1)
+
+
+# R4: Group discount
+def test_group_discount():
+    """R4: Tests the 10% discount for groups of 2 or more members."""
+    assert group_discount(100, 1) == 100
+    assert group_discount(100, 2) == 90
+
+
+# R5: Special offer
+def test_special_offer():
+    """R5: Tests the special offers at different price thresholds."""
+    assert special_offer(450) == 400
+    assert special_offer(300) == 280
+    assert special_offer(200) == 200
+    assert special_offer(400) == 380
+
+
+# R6: Premium surcharge
+def test_premium_surcharge():
+    """R6: Tests the 15% surcharge for premium extras."""
+    assert premium_surcharge(100, []) == 100
+    assert premium_surcharge(100, ["SPA"]) == pytest.approx(115)
+    assert premium_surcharge(100, ["GROUP_CLASSES"]) == 100
 
 
 # ---------- R7: rounding ----------
