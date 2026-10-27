@@ -32,6 +32,27 @@ def subtotal(plan, extras, members):
     unit_price = plan_price(plan) + sum(extra_price(e) for e in extras)
     return unit_price * members
 
+def group_discount(amount, members):
+    """R4: Apply a 10% discount for 2 or more members."""
+    if members >= 2:
+        return amount * 0.90
+    return amount
+
+
+def special_offer(amount):
+    """R5: Apply one special offer based on the amount."""
+    if amount > 400:
+        return amount - 50
+    elif amount > 200:
+        return amount - 20
+    return amount
+
+
+def premium_surcharge(amount, extras):
+    """R6: Add 15% if at least one selected extra is premium."""
+    if any(is_premium_extra(extra) for extra in extras):
+        return amount * 1.15
+    return amount
 
 def round_result(total):
     """R7: round half up to a whole number. Only used at the end."""
