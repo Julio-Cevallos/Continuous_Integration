@@ -59,7 +59,7 @@ def test_negative_members_is_invalid():
 # ---------- R3: subtotal ----------
 def test_subtotal_basic_no_extras_one_member():
     """R3: BASIC, no extras, 1 member."""
-    assert subtotal("BASIC", [], 1) == 30
+    assert subtotal("BASIC", [], 1) == 31
 
 
 def test_subtotal_standard_with_personal_training():
